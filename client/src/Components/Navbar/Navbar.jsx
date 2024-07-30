@@ -15,14 +15,14 @@ import Auth from "../../Pages/Auth/Auth";
 function Navbar({ toggleDrawer, setEditCreateChanelBtn }) {
   const [AuthBtn, setAuthBtn] = useState(false);
   const CurrentUser = useSelector((state) => state?.currentUserReducer);
-  
+
   console.log(CurrentUser);
 
   useEffect(() => {
     function start() {
       gapi.client.init({
         clientId:
-          "802099542012-e1tpuu9ch80srso8nnq5fb7d0cm34lbv.apps.googleusercontent.com",
+          "1052473114195-k1dubfsfpfi2vjpagsp7phtfviq9ops5.apps.googleusercontent.com",
         scope: "email",
       });
     }
@@ -42,7 +42,7 @@ function Navbar({ toggleDrawer, setEditCreateChanelBtn }) {
   };
 
   useEffect(() => {
-    const videoCallBtn = document.getElementById('videoCallBtn');
+    const videoCallBtn = document.getElementById("videoCallBtn");
 
     const checkTimeAndDisable = () => {
       const now = new Date();
@@ -50,13 +50,13 @@ function Navbar({ toggleDrawer, setEditCreateChanelBtn }) {
 
       // Disable button and set notification if time is outside 6 PM to 12 AM
       if (currentHour <= 17) {
-        videoCallBtn.removeAttribute('href');
+        videoCallBtn.removeAttribute("href");
         videoCallBtn.onclick = (e) => {
           e.preventDefault();
-          alert('Video calls are only available from 6 PM to 12 AM');
+          alert("Video calls are only available from 6 PM to 12 AM");
         };
       } else {
-        videoCallBtn.setAttribute('href', '/videocall');
+        videoCallBtn.setAttribute("href", "/videocall");
         videoCallBtn.onclick = null; // Remove onclick if time is within range
       }
     };
